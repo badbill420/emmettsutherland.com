@@ -408,7 +408,7 @@ url("https://static.wixstatic.com/ufonts/7f9ed1_39a825d5405946baa001c1bc76b5c762
       holder.id  = uid;
       // Visible to browser (needed for YT), invisible to user
       holder.style.cssText = 'position:fixed;bottom:0;right:0;width:160px;height:90px;' +
-                             'opacity:0.001;pointer-events:none;z-index:-1;overflow:hidden;';
+                             'opacity:0.001;pointer-events:none;z-index:9999;';
       document.body.appendChild(holder);
 
       var ytPlayer = null;
@@ -444,7 +444,11 @@ url("https://static.wixstatic.com/ufonts/7f9ed1_39a825d5405946baa001c1bc76b5c762
       });
 
       btn.addEventListener('click', function(){
-        if(!ytReady){ return; }
+        if(!ytReady){
+          // API not ready yet — queue the play for when it is
+          ytCallbacks.push(function(){ ytPlayer.playVideo(); btn.innerHTML=pauseIcon(); playing=true; startTicker(); });
+          return;
+        }
         if(playing){
           ytPlayer.pauseVideo(); btn.innerHTML=playIcon(); playing=false; clearInterval(timer);
         } else {
