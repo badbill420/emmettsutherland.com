@@ -1189,8 +1189,10 @@ url("https://static.wixstatic.com/ufonts/304f15_39e8b517377f43bd96bec189ae47e7f3
 
 <script id="es-gallery-script">
 (function(){
-  function getGroupAttr(el, name) {
-    var m = (el.getAttribute('style') || '').match(new RegExp('--' + name + ':([\d.]+)'));
+  function groupAttr(el, name) {
+    var m = (el.getAttribute('style') || '').match(
+      new RegExp('--' + name + ':([-\d.]+)')
+    );
     return m ? parseFloat(m[1]) : 0;
   }
 
@@ -1202,43 +1204,42 @@ url("https://static.wixstatic.com/ufonts/304f15_39e8b517377f43bd96bec189ae47e7f3
 
     if (!scrollEl || !inner || !nextBtn) return;
 
-    // Compute total strip width from group --group-left + --group-width CSS custom props
+    // Total strip width from group CSS custom properties
     var groups = inner.querySelectorAll('[data-hook="group-view"]');
     var totalW = 0;
     groups.forEach(function(g) {
-      totalW = Math.max(totalW,
-        getGroupAttr(g, 'group-left') + getGroupAttr(g, 'group-width'));
+      totalW = Math.max(totalW, groupAttr(g,'group-left') + groupAttr(g,'group-width'));
     });
 
-    var containerW = scrollEl.offsetWidth || parseInt(scrollEl.style.width) || 821;
-    var maxScroll  = Math.max(0, totalW - containerW);
-    if (maxScroll < 10) return; // nothing hidden, skip
+    // Container visible width
+    var cw = scrollEl.offsetWidth || parseInt(scrollEl.style.width) || 821;
+    if (totalW <= cw + 10) return; // nothing hidden
 
-    var offset = 0;
+    // Give the inner div an explicit width so scrollLeft works,
+    // then make the container horizontally scrollable
+    inner.style.width   = totalW + 'px';
+    inner.style.display = 'block';
+    scrollEl.style.overflowX = 'scroll';   // enables scrollLeft
+    scrollEl.style.scrollBehavior = 'smooth';
 
-    scrollEl.style.overflowX = 'hidden';
-    inner.style.transition   = 'transform 0.45s ease';
-    inner.style.willChange   = 'transform';
-
-    function go(n) {
-      // Clamp to [0, maxScroll]; once at max, next click wraps to 0
-      if (offset >= maxScroll && n > offset) { n = 0; }
-      offset = Math.max(0, Math.min(maxScroll, n));
-      inner.style.transform = 'translateX(-' + offset + 'px)';
+    function scrollNext() {
+      var maxSL = scrollEl.scrollWidth - scrollEl.clientWidth;
+      if (scrollEl.scrollLeft >= maxSL - 5) {
+        scrollEl.scrollLeft = 0;
+      } else {
+        scrollEl.scrollLeft += cw;
+      }
+    }
+    function scrollPrev() {
+      if (scrollEl.scrollLeft <= 5) {
+        scrollEl.scrollLeft = scrollEl.scrollWidth;
+      } else {
+        scrollEl.scrollLeft -= cw;
+      }
     }
 
-    nextBtn.style.cursor = 'pointer';
-    nextBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      go(offset + containerW);
-    });
-    if (prevBtn) {
-      prevBtn.style.cursor = 'pointer';
-      prevBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        go(offset - containerW);
-      });
-    }
+    nextBtn.addEventListener('click', function(e){ e.stopPropagation(); scrollNext(); });
+    if (prevBtn) prevBtn.addEventListener('click', function(e){ e.stopPropagation(); scrollPrev(); });
   });
 })();
 </script>
