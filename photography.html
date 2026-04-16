@@ -1263,6 +1263,59 @@ url("https://static.wixstatic.com/ufonts/1d19d1_29db5f83e86f494f92b544c0bd223f98
 
 
 
+<script id="es-gallery-script">
+(function(){
+  function getGroupAttr(el, name) {
+    var m = (el.getAttribute('style') || '').match(new RegExp('--' + name + ':([^;,]+)'));
+    return m ? parseFloat(m[1]) : 0;
+  }
+
+  document.querySelectorAll('[id^="pro-gallery-container-"]').forEach(function(container) {
+    var scrollEl = container.querySelector('.gallery-horizontal-scroll');
+    var inner    = container.querySelector('.gallery-horizontal-scroll-inner');
+    var nextBtn  = container.querySelector('[data-hook="nav-arrow-next"]');
+    var prevBtn  = container.querySelector('[data-hook="nav-arrow-prev"]');
+
+    if (!scrollEl || !inner || !nextBtn) return;
+
+    // Compute total strip width from inline CSS custom properties on each group
+    var groups = inner.querySelectorAll('[data-hook="group-view"]');
+    var totalW = 0;
+    groups.forEach(function(g) {
+      var left  = getGroupAttr(g, 'group-left');
+      var width = getGroupAttr(g, 'group-width');
+      totalW = Math.max(totalW, left + width);
+    });
+
+    // Container width from inline style (offsetWidth may be 0 before paint)
+    var containerW = scrollEl.offsetWidth || parseInt(scrollEl.style.width) || 821;
+    var maxScroll  = Math.max(0, totalW - containerW);
+    if (maxScroll < 20) return; // all content fits, nothing to scroll
+
+    var step   = containerW; // advance one full "slide" per click
+    var offset = 0;
+
+    scrollEl.style.overflow = 'hidden';
+    inner.style.transition  = 'transform 0.45s ease';
+    inner.style.willChange  = 'transform';
+
+    function go(n) {
+      // Clamp and wrap: at the end, wrap back to 0
+      if (n > maxScroll) n = 0;
+      if (n < 0)         n = maxScroll;
+      offset = n;
+      inner.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    nextBtn.style.cursor = 'pointer';
+    nextBtn.addEventListener('click', function(e) { e.stopPropagation(); go(offset + step); });
+    if (prevBtn) {
+      prevBtn.style.cursor = 'pointer';
+      prevBtn.addEventListener('click', function(e) { e.stopPropagation(); go(offset - step); });
+    }
+  });
+})();
+</script>
 </body>
 
 <!-- Mirrored from www.emmettsutherland.com/photography by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Apr 2026 18:33:08 GMT -->
