@@ -509,7 +509,7 @@ url("https://static.wixstatic.com/ufonts/7f9ed1_39a825d5405946baa001c1bc76b5c762
     a.addEventListener('timeupdate',function(){if(a.duration)sp(a.currentTime/a.duration*100);});
     a.addEventListener('ended',function(){btn.innerHTML=pi();p=false;sp(0);});
     trk.onclick=function(e){var v=Math.max(0,Math.min(1,(e.clientX-trk.getBoundingClientRect().left)/trk.offsetWidth));sp(v*100);if(a.duration)a.currentTime=v*a.duration;if(!p){a.play().catch(function(){});btn.innerHTML=pa();p=true;}};
-    window.addEventListener('resize',function(){var r2=ph.getBoundingClientRect();w.style.top=(Math.round(r2.top)-5)+'px';w.style.left=Math.round(r2.left)+'px';w.style.width=Math.round(r2.width)+'px';w.style.height=Math.round(r2.height)+'px';});
+    window.addEventListener('resize',function(){var r2=ph.getBoundingClientRect();w.style.top=(Math.round(r2.top)-5)+'px';w.style.left=Math.round(r2.left)+'px';w.style.width='411px';w.style.height=Math.round(r2.height)+'px';});
   }
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',build);}else{build();}
 })();</script></body></html>
