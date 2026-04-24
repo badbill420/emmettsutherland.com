@@ -140,18 +140,7 @@ url("https://static.wixstatic.com/ufonts/7f9ed1_39a825d5405946baa001c1bc76b5c762
 <style id="compCssMappers_x59ho">#x59ho{--shc-mutated-brightness:0,0,0;width:auto;min-height:748px;}#pageBackground_x59ho{--bg-position:absolute;--bg-overlay-color:rgb(0, 0, 0);--bg-gradient:none;}#comp-l6nsagi51{--bg-overlay-color:transparent;--bg-gradient:none;min-width:980px;}#comp-k6u1w1u3{--height:39px;--width:39px;}#comp-k6u1svbq{--height:528px;--width:401px;}#comp-k6vcompt{--text-direction:var(--wix-opt-in-direction);}#comp-k6u1wc7q{height:52;}</style>
 
 <link rel="stylesheet" type="text/css" href="https://static.parastorage.com/services/wix-thunderbolt/dist/group_7.882d8423.chunk.min.css">
-<style id="es-player-style">
-[data-mesh-id="SITE_HEADERinlineContent-gridContainer"]{pointer-events:auto!important;}
-#comp-mamsd1y2{position:relative!important;z-index:9999!important;pointer-events:auto!important;}
-.es-player{display:flex;align-items:center;width:100%;height:100%;padding:0 10px;box-sizing:border-box;gap:10px;background:transparent;pointer-events:auto!important;}
-.es-player *{pointer-events:auto!important;}
-.es-play{background:none;border:none;cursor:pointer;padding:0;width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
-.es-play svg{display:block;pointer-events:none;}
-.es-track{flex:1;position:relative;height:24px;display:flex;align-items:center;cursor:pointer;}
-.es-rail{position:absolute;left:0;right:0;height:1px;background:rgba(254,250,240,0.25);}
-.es-fill{position:absolute;left:0;height:1px;background:rgb(254,250,240);width:0%;}
-.es-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:rgb(254,250,240);top:50%;transform:translate(-50%,-50%);left:0%;pointer-events:none;}
-</style>
+
 <style id="es-global-color">*{color:#FFFAFA!important}</style>
 </head>
 <body class="">
@@ -336,126 +325,7 @@ url("https://static.wixstatic.com/ufonts/7f9ed1_39a825d5405946baa001c1bc76b5c762
 
 
 
-<script id="es-player-script">
-(function(){
-  var ytApiLoading = false;
-  var ytApiReady   = false;
-  var ytCallbacks  = [];
 
-  window.onYouTubeIframeAPIReady = function(){
-    ytApiReady = true;
-    ytCallbacks.splice(0).forEach(function(fn){ fn(); });
-  };
 
-  function loadYTApi(cb){
-    ytCallbacks.push(cb);
-    if(ytApiReady){ window.onYouTubeIframeAPIReady(); return; }
-    if(ytApiLoading){ return; }
-    ytApiLoading = true;
-    var s = document.createElement('script');
-    s.src = 'https://www.youtube.com/iframe_api';
-    document.head.appendChild(s);
-  }
-
-  function initPlayer(el){
-    var src  = el.dataset.src;
-    var ytId = el.dataset.yt;
-    var btn  = el.querySelector('.es-play');
-    var fill = el.querySelector('.es-fill');
-    var dot  = el.querySelector('.es-dot');
-    var rail = el.querySelector('.es-track');
-    var playing = false;
-
-    function setPos(p){ fill.style.width=p+'%'; dot.style.left=p+'%'; }
-    function playIcon(){  return '<svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L11 7L1 13V1Z" fill="rgb(254,250,240)"/></svg>'; }
-    function pauseIcon(){ return '<svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="3.5" height="12" fill="rgb(254,250,240)"/><rect x="7.5" y="1" width="3.5" height="12" fill="rgb(254,250,240)"/></svg>'; }
-    btn.innerHTML = playIcon();
-
-    if(ytId){
-      // Create a tiny but in-viewport iframe — YouTube blocks off-screen players
-      var uid = 'yt-' + ytId + '-' + Math.random().toString(36).slice(2,7);
-      var holder = document.createElement('div');
-      holder.id  = uid;
-      // Visible to browser (needed for YT), invisible to user
-      holder.style.cssText = 'position:fixed;bottom:0;right:0;width:160px;height:90px;' +
-                             'opacity:0.001;pointer-events:none;z-index:9999;';
-      document.body.appendChild(holder);
-
-      var ytPlayer = null;
-      var ytReady  = false;
-      var timer    = null;
-
-      function startTicker(){
-        clearInterval(timer);
-        timer = setInterval(function(){
-          if(!ytReady||!ytPlayer) return;
-          try{
-            var dur=ytPlayer.getDuration(), cur=ytPlayer.getCurrentTime();
-            if(dur) setPos((cur/dur)*100);
-          }catch(e){}
-        }, 250);
-      }
-
-      loadYTApi(function(){
-        ytPlayer = new YT.Player(uid, {
-          videoId: ytId,
-          width: '160', height: '90',
-          playerVars:{ autoplay:0, controls:0, disablekb:1, fs:0, rel:0,
-                       origin: window.location.origin },
-          events:{
-            onReady: function(){ ytReady = true; },
-            onStateChange: function(e){
-              if(e.data===YT.PlayerState.ENDED){
-                btn.innerHTML=playIcon(); playing=false; setPos(0); clearInterval(timer);
-              }
-            }
-          }
-        });
-      });
-
-      btn.addEventListener('click', function(){
-        if(!ytReady){
-          // API not ready yet — queue the play for when it is
-          ytCallbacks.push(function(){ ytPlayer.playVideo(); btn.innerHTML=pauseIcon(); playing=true; startTicker(); });
-          return;
-        }
-        if(playing){
-          ytPlayer.pauseVideo(); btn.innerHTML=playIcon(); playing=false; clearInterval(timer);
-        } else {
-          ytPlayer.playVideo(); btn.innerHTML=pauseIcon(); playing=true; startTicker();
-        }
-      });
-
-      rail.addEventListener('click', function(e){
-        if(!ytReady||!ytPlayer) return;
-        var pct = Math.max(0,Math.min(1,(e.clientX-rail.getBoundingClientRect().left)/rail.offsetWidth));
-        setPos(pct*100);
-        var dur = ytPlayer.getDuration();
-        if(dur) ytPlayer.seekTo(pct*dur, true);
-      });
-
-    } else if(src){
-      var audio = new Audio(); audio.preload='none';
-      btn.addEventListener('click',function(){
-        if(!audio.src) audio.src=src;
-        if(playing){ audio.pause(); btn.innerHTML=playIcon(); playing=false; }
-        else{ audio.play(); btn.innerHTML=pauseIcon(); playing=true; }
-      });
-      audio.addEventListener('timeupdate',function(){
-        if(audio.duration) setPos((audio.currentTime/audio.duration)*100);
-      });
-      audio.addEventListener('ended',function(){ btn.innerHTML=playIcon(); playing=false; setPos(0); });
-      rail.addEventListener('click',function(e){
-        if(!audio.src) audio.src=src;
-        var pct=Math.max(0,Math.min(1,(e.clientX-rail.getBoundingClientRect().left)/rail.offsetWidth));
-        if(audio.duration) audio.currentTime=pct*audio.duration;
-        setPos(pct*100);
-      });
-    }
-  }
-
-  document.querySelectorAll('.es-player[data-src],.es-player[data-yt]').forEach(initPlayer);
-})();
-</script>
-
+<div id="totw-player" style="position:fixed;top:138px;left:calc((100vw - 980px)/2 + 284px);width:411px;height:40px;display:flex;align-items:center;gap:10px;z-index:99999;pointer-events:auto;"><button id="totw-btn" type="button" style="background:none;border:none;cursor:pointer;padding:0;width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"></button><div id="totw-bar" style="flex:1;position:relative;height:1px;background:rgba(255,250,250,0.3);cursor:pointer;top:0;"><div id="totw-fill" style="position:absolute;left:0;top:0;bottom:0;height:1px;background:#FFFAFA;width:0%;pointer-events:none;"></div><div id="totw-dot" style="position:absolute;top:50%;left:0%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:#FFFAFA;pointer-events:none;"></div></div></div><script>(function(){var mp3='/audio/north-of-loreto.mp3';var a=new Audio(mp3);a.preload='none';var btn=document.getElementById('totw-btn'),fill=document.getElementById('totw-fill'),dot=document.getElementById('totw-dot'),bar=document.getElementById('totw-bar'),on=false;function pi(){return'<svg width="12" height="14" viewBox="0 0 12 14"><path d="M1 1L11 7L1 13V1Z" fill="#FFFAFA"/></svg>';}function pa(){return'<svg width="12" height="14" viewBox="0 0 12 14"><rect x="1" y="1" width="3.5" height="12" fill="#FFFAFA"/><rect x="7.5" y="1" width="3.5" height="12" fill="#FFFAFA"/></svg>';}btn.innerHTML=pi();function sp(v){fill.style.width=v+'%';dot.style.left=v+'%';}btn.onclick=function(){if(on){a.pause();btn.innerHTML=pi();on=false;}else{a.play().catch(function(){});btn.innerHTML=pa();on=true;}};a.ontimeupdate=function(){if(a.duration)sp(a.currentTime/a.duration*100);};a.onended=function(){btn.innerHTML=pi();on=false;sp(0);};bar.onclick=function(e){var r=bar.getBoundingClientRect(),v=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));sp(v*100);if(a.duration)a.currentTime=v*a.duration;if(!on){a.play().catch(function(){});btn.innerHTML=pa();on=true;}};})();</script>
 </body></html>
