@@ -59,7 +59,7 @@
     <img src="/images/304f15_eabeaeb6e21c458aaa33237e12629655~mv2.png" alt="KEN">
     <img src="/images/304f15_6a9b8beb39cf49d98710abc4a8d6d0ee~mv2.png" alt="KEN">
   </div>
-  <div class="embed-wrap"><video controls><source src="https://video.wixstatic.com/video/304f15_159e6a07dc774636859de7607a0b94d8/1080p/mp4/file.mp4" type="video/mp4"></video></div>
+  <div class="embed-wrap" id="ken-video-wrap"><video controls id="ken-video"><source src="https://video.wixstatic.com/video/304f15_159e6a07dc774636859de7607a0b94d8/1080p/mp4/file.mp4" type="video/mp4"></video></div>
 </main>
 <footer><a href="http://www.instagram.com/xemmettsutherlandx">Emmett Sutherland &copy;</a></footer>
 <script>
@@ -71,6 +71,12 @@
   audio.addEventListener('timeupdate',function(){if(audio.duration)setPos(audio.currentTime/audio.duration*100);});
   audio.addEventListener('ended',function(){icon.innerHTML=PLAY;on=false;setPos(0);});
   track.addEventListener('click',function(e){var r=track.getBoundingClientRect(),v=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));setPos(v*100);if(audio.duration)audio.currentTime=v*audio.duration;if(!on){audio.play().catch(function(){});icon.innerHTML=PAUSE;on=true;}});
+  window.addEventListener('load',function(){
+    var row=document.querySelector('.img-row');
+    var wrap=document.getElementById('ken-video-wrap');
+    var vid=document.getElementById('ken-video');
+    if(row&&wrap&&vid){var w=row.offsetWidth;wrap.style.width=w+'px';vid.style.width=w+'px';}
+  });
 })();
 </script>
 </body>
