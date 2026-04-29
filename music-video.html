@@ -26,10 +26,11 @@
     .embed-wrap video { width: 100%; max-width: 900px; }
     .img-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
     .img-row img { height: 240px; width: auto; display: block; }
-    .project-grid { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 16px; }
-    .project-card { flex: 0 0 280px; }
-    .project-card img { height: 180px; width: auto; display: block; }
-    .project-card .cap { font-size: 11px; margin-top: 4px; text-align: center; }
+    .project-grid { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 16px; justify-content: flex-start; }
+    .project-card { flex: 0 0 280px; width: 280px; }
+    .project-card a { display: block; width: 280px; height: 158px; overflow: hidden; }
+    .project-card img { width: 280px; height: 158px; object-fit: cover; display: block; }
+    .project-card .cap { font-size: 11px; margin-top: 4px; text-align: left; font-style: italic; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
 </head>
