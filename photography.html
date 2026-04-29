@@ -23,8 +23,10 @@
     .section { margin-bottom: 48px; }
     .section-heading { font-size: 18px; font-weight: bold; margin-bottom: 4px; }
     .section-sub { font-size: 12px; font-weight: normal; font-style: italic; color: #555; margin-bottom: 12px; }
-    .img-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+    .img-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
     .img-row img { height: 280px; width: auto; display: block; }
+    .img-row-sm img { height: 140px; width: auto; display: block; cursor: zoom-in; transition: transform 0.3s ease; transform-origin: top left; }
+    .img-row-sm img:hover { transform: scale(2); z-index: 10; position: relative; }
     .video-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
     .video-row iframe { width: 560px; height: 315px; border: none; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
@@ -69,7 +71,7 @@
   <div class="section">
     <div class="section-heading">The Absorption Company</div>
     <div class="section-sub">Product Photography &nbsp;|&nbsp; Digital</div>
-    <div class="img-row">
+    <div class="img-row img-row-sm">
       <img src="/images/es_photo_1.jpg" alt="The Absorption Company">
       <img src="/images/es_photo_2.jpg" alt="The Absorption Company">
       <img src="/images/es_photo_3.jpg" alt="The Absorption Company">
@@ -82,7 +84,7 @@
   <div class="section">
     <div class="section-heading">Kenra Platinum</div>
     <div class="section-sub">Product &amp; Model &nbsp;|&nbsp; Digital</div>
-    <div class="img-row">
+    <div class="img-row img-row-sm">
       <img src="/images/kenra_5.jpg" alt="Kenra Platinum">
       <img src="/images/kenra_6.jpg" alt="Kenra Platinum">
       <img src="/images/kenra_7.jpg" alt="Kenra Platinum">
@@ -90,7 +92,7 @@
       <img src="/images/kenra_2.jpg" alt="Kenra Platinum">
       <img src="/images/kenra_3.jpg" alt="Kenra Platinum">
     </div>
-    <div class="img-row">
+    <div class="img-row img-row-sm">
       <img src="/images/kenra_4.png" alt="Kenra Boosting Spray-Foam">
       <img src="/images/kenra_8.png" alt="Kenra Blow-Dry Mist">
     </div>
