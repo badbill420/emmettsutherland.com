@@ -24,8 +24,12 @@
     .section-heading { font-size: 14px; font-weight: bold; margin-bottom: 8px; }
     .section-body { font-size: 12px; font-style: italic; font-weight: normal; line-height: 1.7; margin-bottom: 16px; max-width: 680px; }
     .img-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
-    .img-row img { height: 220px; width: auto; display: block; }
+    .img-row img { height: 220px; width: auto; display: block; cursor: zoom-in; transition: transform 0.3s ease; }
+    .img-row img:hover { transform: scale(1.6); z-index: 10; position: relative; }
     .img-hero img { height: 320px; width: auto; display: block; }
+    .img-row-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+    .img-row-3col img { width: 100%; height: 200px; object-fit: cover; display: block; cursor: zoom-in; transition: transform 0.3s ease; }
+    .img-row-3col img:hover { transform: scale(1.6); z-index: 10; position: relative; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
 </head>
@@ -81,8 +85,7 @@
     <div class="section-heading">FACADE RE-DO</div>
     <p class="section-body">{We began with the front of the building, which required the facade to be fully demolished and re-cast. We chose concrete because it made the most sense financially while also allowing us to achieve a period-correct look that matched the neighborhood&rsquo;s Deco character. The facade and doorway had been structurally compromised after a car struck the building prior to our project. We drew inspiration from Art Deco facades in the Pico area and sent sketches to designer Noah Johnson, who elevated the concept with his passion for Los Angeles&rsquo; architectural history.}</p>
     <div class="img-row">
-      <img src="/images/es_facadewrk.jpg" alt="Facade Formwork">
-      <img src="/images/304f15_19ffc921b7de4b56b5bfe04535efacfe~mv2.jpeg" alt="Facade Construction">
+<img src="/images/304f15_19ffc921b7de4b56b5bfe04535efacfe~mv2.jpeg" alt="Facade Construction">
       <img src="/images/304f15_e7117a57faa342dca8888de01efde929~mv2.jpeg" alt="Facade Construction">
       <img src="/images/304f15_8af2e7cbd5724e02bdb2a47beb678fb8~mv2.jpeg" alt="Facade Framing">
       <img src="/images/304f15_86b5fbfe53d24e51a03d6217db3505d0~mv2.jpg" alt="Finished Facade">
@@ -166,6 +169,14 @@
   track.addEventListener('click',function(e){var r=track.getBoundingClientRect(),v=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));setPos(v*100);if(audio.duration)audio.currentTime=v*audio.duration;if(!on){audio.play().catch(function(){});icon.innerHTML=PAUSE;on=true;}});
 })();
 </script>
-
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.img-row').forEach(function(row){
+    if(row.querySelectorAll('img').length >= 6){
+      row.className = row.className.replace('img-row','img-row-3col');
+    }
+  });
+});
+</script>
 </body>
 </html>
