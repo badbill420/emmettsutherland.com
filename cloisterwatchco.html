@@ -29,6 +29,14 @@
     .before-after-col { display: flex; flex-direction: column; align-items: flex-start; }
     .before-after-label { font-size: 11px; font-weight: bold; letter-spacing: 0.08em; margin-bottom: 6px; }
     .before-after-col img { height: 420px; width: auto; display: block; }
+    .portfolio-reveal { margin-bottom: 40px; }
+    .portfolio-reveal-heading { font-size: 14px; font-weight: bold; margin-bottom: 12px; }
+    .portfolio-cols { display: flex; gap: 24px; align-items: flex-start; }
+    .portfolio-col { display: flex; flex-direction: column; }
+    .portfolio-col-label { font-size: 11px; font-weight: bold; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .portfolio-col-before img { height: 420px; width: auto; display: block; }
+    .portfolio-col-after { gap: 12px; display: flex; flex-direction: column; }
+    .portfolio-col-after img { height: 204px; width: auto; display: block; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
 </head>
@@ -68,6 +76,23 @@
     <div class="before-after-col">
       <div class="before-after-label">AFTER</div>
       <img loading="lazy" src="/images/cloister-after.png" alt="Cloister Watch Co. — After">
+    </div>
+  </div>
+
+  <div class="portfolio-reveal">
+    <div class="portfolio-reveal-heading">Portfolio Reveal</div>
+    <div class="portfolio-cols">
+      <div class="portfolio-col portfolio-col-before">
+        <div class="portfolio-col-label">BEFORE</div>
+        <img loading="lazy" src="/images/cloister-watch-before.png" alt="Portfolio — Before">
+      </div>
+      <div class="portfolio-col">
+        <div class="portfolio-col-label">AFTER</div>
+        <div class="portfolio-col-after">
+          <img loading="lazy" src="/images/cloister-watch-after-1.png" alt="Portfolio — After 1">
+          <img loading="lazy" src="/images/cloister-watch-after-2.png" alt="Portfolio — After 2">
+        </div>
+      </div>
     </div>
   </div>
 
