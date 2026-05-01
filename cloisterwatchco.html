@@ -38,6 +38,8 @@
     .portfolio-col-after { gap: 12px; display: flex; flex-direction: column; }
     .portfolio-col-after img { height: 300px; width: auto; display: block; }
     .portfolio-col-after.three img { height: 132px; }
+    .portfolio-col-after.row { flex-direction: row; }
+    .portfolio-col-before img.small { height: 140px; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
 </head>
@@ -97,7 +99,7 @@ The result is less a site to browse watches and more a home for watchmaking and 
       </div>
       <div class="portfolio-col">
         <div class="portfolio-col-label">AFTER</div>
-        <div class="portfolio-col-after">
+        <div class="portfolio-col-after row">
           <img loading="lazy" src="/images/cloister-watch-after-1.png" alt="Portfolio — After 1">
           <img loading="lazy" src="/images/cloister-watch-after-2.png" alt="Portfolio — After 2">
         </div>
@@ -109,7 +111,7 @@ The result is less a site to browse watches and more a home for watchmaking and 
     <div class="portfolio-reveal-heading">WORDMARK &amp; LOGO MARK</div>
     <div class="portfolio-cols">
       <div class="portfolio-col portfolio-col-before">
-        <img loading="lazy" src="/images/cloister-wordmark-main.png" alt="Cloister Wordmark">
+        <img loading="lazy" src="/images/cloister-wordmark-main.png" alt="Cloister Wordmark" class="small">
       </div>
       <div class="portfolio-col">
         <div class="portfolio-col-after three">
