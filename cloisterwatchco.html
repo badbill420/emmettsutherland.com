@@ -37,12 +37,13 @@
     .portfolio-col-before img { height: 420px; width: auto; display: block; }
     .portfolio-col-after { gap: 12px; display: flex; flex-direction: column; }
     .portfolio-col-after img { height: 300px; width: auto; display: block; }
+    .portfolio-col-after.three { flex-direction: row; }
     .portfolio-col-after.three img { height: 132px; }
     .portfolio-cols.stacked { flex-direction: column; }
     .portfolio-col-after.row { flex-direction: row; flex-wrap: wrap; }
-    .portfolio-col-after img { cursor: zoom-in; transition: transform 0.3s ease; }
-    .portfolio-col-after img:hover { transform: scale(1.5); position: relative; z-index: 10; }
-    .portfolio-col-before img.small { height: 140px; }
+    .portfolio-col-before img.small { height: 187px; }
+    main img { cursor: zoom-in; transition: transform 0.3s ease; }
+    main img:hover { transform: scale(1.5); position: relative; z-index: 10; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
 </head>
@@ -98,7 +99,7 @@ The result is less a site to browse watches and more a home for watchmaking and 
     <div class="portfolio-cols stacked">
       <div class="portfolio-col">
         <div class="portfolio-col-label">BEFORE</div>
-        <img loading="lazy" src="/images/cloister-watch-before.png" alt="Portfolio — Before" style="height:210px;width:auto;display:block;">
+        <img loading="lazy" src="/images/cloister-watch-before.png" alt="Portfolio — Before" style="height:300px;width:auto;display:block;">
       </div>
       <div class="portfolio-col">
         <div class="portfolio-col-label">AFTER</div>
