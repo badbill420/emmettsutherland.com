@@ -61,6 +61,27 @@
       width: 100%;
       height: auto;
       display: block;
+      cursor: zoom-in;
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      display: block;
     }
 
     /* ── FOOTER ── */
@@ -111,11 +132,23 @@
 
 </main>
 
+<div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
 <footer>
   <a href="http://www.instagram.com/xemmettsutherlandx">Emmett Sutherland &copy;</a>
 </footer>
 
 <script>
+(function() {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.mag-grid img').forEach(function(img) {
+    img.addEventListener('click', function() { lbImg.src = img.src; lb.classList.add('open'); });
+  });
+  lb.addEventListener('click', function() { lb.classList.remove('open'); lbImg.src = ''; });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { lb.classList.remove('open'); lbImg.src = ''; } });
+})();
+
 (function() {
   var audio = document.getElementById('totw-audio');
   var btn   = document.getElementById('totw-btn');
