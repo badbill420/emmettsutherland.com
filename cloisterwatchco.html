@@ -38,6 +38,7 @@
     .portfolio-col-after { gap: 12px; display: flex; flex-direction: column; }
     .portfolio-col-after img { height: 300px; width: auto; display: block; }
     .portfolio-col-after.three img { height: 132px; }
+    .portfolio-cols.stacked { flex-direction: column; }
     .portfolio-col-after.row { flex-direction: row; flex-wrap: wrap; }
     .portfolio-col-after img { cursor: zoom-in; transition: transform 0.3s ease; }
     .portfolio-col-after img:hover { transform: scale(1.5); position: relative; z-index: 10; }
@@ -94,8 +95,8 @@ The result is less a site to browse watches and more a home for watchmaking and 
 
   <div class="portfolio-reveal">
     <div class="portfolio-reveal-heading">Portfolio Reveal</div>
-    <div class="portfolio-cols">
-      <div class="portfolio-col portfolio-col-before">
+    <div class="portfolio-cols stacked">
+      <div class="portfolio-col">
         <div class="portfolio-col-label">BEFORE</div>
         <img loading="lazy" src="/images/cloister-watch-before.png" alt="Portfolio — Before">
       </div>
