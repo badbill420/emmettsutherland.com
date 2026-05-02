@@ -78,6 +78,5 @@
   track.addEventListener('click',function(e){var r=track.getBoundingClientRect(),v=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));setPos(v*100);if(audio.duration)audio.currentTime=v*audio.duration;if(!on){audio.play().catch(function(){});icon.innerHTML=PAUSE;on=true;}});
 })();
 </script>
-<script src="/js/router.js"></script>
 </body>
 </html>
