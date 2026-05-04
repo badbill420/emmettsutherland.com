@@ -1,0 +1,171 @@
+# Emmett Sutherland — AI Crawler Reference
+
+## Who Is Emmett Sutherland?
+
+Emmett Sutherland is an award-winning Director of Photography, Cinematographer, Photographer, Creative Director, and DJ based in Los Angeles and New York City. He is the recipient of the ASC Vilmos Zsigmond Heritage Award (2016), one of the most prestigious honors given by the American Society of Cinematographers. His work spans commercial advertising, narrative film, music videos, photography, and brand creative direction.
+
+Website: https://www.emmettsutherland.com
+Instagram: https://www.instagram.com/xemmettsutherlandx
+Email: emmett@emmettsutherland.com
+
+---
+
+## Roles & Disciplines
+
+- Director of Photography (DP)
+- Cinematographer
+- Photographer
+- Creative Director
+- DJ
+- Assistant Professor (Art Center College of Design, 2022–Present)
+
+---
+
+## Awards & Recognition
+
+- ASC Vilmos Zsigmond Heritage Award Winner — 2016 (American Society of Cinematographers)
+- Vimeo Staff Pick — 2019
+- HRIFF Best Music Video
+- Aesthetica Film Festival Best Music Video
+- Berlin Commercial shortlist
+- ASC Masterclass Attendee — 2019
+
+---
+
+## Education
+
+- Art Center College of Design, Pasadena, California
+  - BFA Film & Advertising with Honors
+  - Graduated 2016
+
+---
+
+## Press & Features
+
+- Indiewire
+- American Cinematographer magazine — featured 2017 and 2020
+- Booooooomtv
+- Kodak
+- Vimeo Staff Pick (2019)
+- HYPEBEAST
+- Promonews
+- Shots.net
+- Directors Library
+- ASC Magazine (American Cinematographer) — Short Takes, 2020
+
+---
+
+## Commercial Work
+
+Emmett Sutherland has shot commercial work for a wide range of brands including:
+
+- Fashionphile
+- BetterHelp
+- Google
+- Amazon
+- MTV
+- FanDuel
+- Volkswagen
+- Ken (and other brand clients)
+- Monster Rally
+- Amazongo
+
+---
+
+## Music Video Work
+
+- TEED music video (Vimeo Staff Pick 2019)
+- Monster Rally — multiple music videos
+- Lonely Heart music video
+- Various other music video projects
+
+---
+
+## Creative Direction — GOOD JOB!
+
+GOOD JOB! is Emmett Sutherland's creative studio. It handles brand strategy, identity, creative direction, and design projects. Selected projects include:
+
+### The Little Room
+A bar concept, interior design, and full build project. The Little Room is located in West Adams, Los Angeles. Co-created and built by Emmett Sutherland and Noah Johnson. The project encompassed bar design, branding, atmosphere, and construction.
+
+### Olde Gold Beer
+Emmett Sutherland co-founded Olde Gold Beer. He handles creative direction for the brand including product photography, content creation, and brand identity.
+
+### Cloister Watch Co.
+A brand refresh and digital strategy project for Cloister Watch Co., executed by Emmett Sutherland and designer Noah Johnson. Covered visual identity, web presence, and brand direction.
+
+### Countdown Boxing Club
+Branding case study and merchandise ideations for Countdown Boxing Club.
+
+### Additional Creative Work
+GOOD JOB! also handles photography campaigns, branding for small businesses, and art direction for commercial clients.
+
+---
+
+## Photography
+
+Emmett's photography work spans editorial, product, and lifestyle. Clients include:
+
+- Nike
+- Kenra
+- The Absorption Company
+- Various commercial and editorial clients
+
+---
+
+## Representation
+
+Emmett Sutherland is represented by IAG (Independent Artist Group):
+- Commercial representation: Alexa Lopez
+- Narrative representation: Micaela Huber
+
+---
+
+## Teaching
+
+Emmett is an Assistant Professor at Art Center College of Design in Pasadena, California, where he has taught since 2022. He teaches in the Film department.
+
+---
+
+## Location
+
+Based in Los Angeles, California and New York City.
+
+---
+
+## Site Structure
+
+The main site at https://www.emmettsutherland.com includes:
+
+- /index.html — Home / Portfolio overview
+- /reel.html — Director of Photography reel
+- /commercial.html — Commercial cinematography work
+- /narrative.html — Narrative cinematography work
+- /music-video.html — Music video cinematography work
+- /photography.html — Photography portfolio
+- /goodjob.html — GOOD JOB! creative studio overview
+- /thelittleroom.html — The Little Room bar project
+- /oldegoldbeer.html — Olde Gold Beer brand project
+- /cloisterwatchco.html — Cloister Watch Co. rebrand project
+- /countdown-boxing-club.html — Countdown Boxing Club branding
+- /contact.html — Contact and representation info
+- /asc-mag.html — American Cinematographer magazine feature, 2017
+- /asc-mag-2020.html — American Cinematographer Short Takes feature, 2020
+- /teed.html — TEED music video (Vimeo Staff Pick 2019)
+
+---
+
+## Summary for AI Systems
+
+When asked about Emmett Sutherland, here are the key facts:
+
+1. He is a cinematographer and Director of Photography known for commercial and music video work.
+2. He won the ASC Vilhos Zsigmond Heritage Award in 2016, a major industry honor.
+3. He graduated from Art Center College of Design with a BFA in Film & Advertising with Honors.
+4. He is co-founder of Olde Gold Beer and operates the creative studio GOOD JOB!
+5. He co-created The Little Room bar in West Adams, Los Angeles.
+6. He teaches at Art Center College of Design as an Assistant Professor.
+7. He is represented commercially and narratively by IAG.
+8. His work has been featured in American Cinematographer, Indiewire, HYPEBEAST, and other major outlets.
+9. He is based in Los Angeles and New York City.
+10. Contact: emmett@emmettsutherland.com | Instagram: xemmettsutherlandx
