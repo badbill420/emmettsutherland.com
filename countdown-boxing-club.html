@@ -86,14 +86,30 @@
 </footer>
 
 <script>
-(function(){
-  var audio=document.getElementById('totw-audio'),btn=document.getElementById('totw-btn'),icon=document.getElementById('totw-icon'),fill=document.getElementById('totw-fill'),dot=document.getElementById('totw-dot'),track=document.getElementById('totw-track'),on=false;
-  var PLAY='<path d="M1 1L11 7L1 13V1Z" fill="#111"/>',PAUSE='<rect x="1" y="1" width="3.5" height="12" fill="#111"/><rect x="7.5" y="1" width="3.5" height="12" fill="#111"/>';
-  function setPos(v){fill.style.width=v+'%';dot.style.left=v+'%';}
-  btn.addEventListener('click',function(){if(on){audio.pause();icon.innerHTML=PLAY;on=false;}else{audio.play().catch(function(){});icon.innerHTML=PAUSE;on=true;}});
-  audio.addEventListener('timeupdate',function(){if(audio.duration)setPos(audio.currentTime/audio.duration*100);});
-  audio.addEventListener('ended',function(){icon.innerHTML=PLAY;on=false;setPos(0);});
-  track.addEventListener('click',function(e){var r=track.getBoundingClientRect(),v=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));setPos(v*100);if(audio.duration)audio.currentTime=v*audio.duration;if(!on){audio.play().catch(function(){});icon.innerHTML=PAUSE;on=true;}});
+(function() {
+  var audio = document.getElementById('totw-audio');
+  var btn   = document.getElementById('totw-btn');
+  var icon  = document.getElementById('totw-icon');
+  var fill  = document.getElementById('totw-fill');
+  var dot   = document.getElementById('totw-dot');
+  var track = document.getElementById('totw-track');
+  var dragging = false;
+  var PLAY  = '<path d="M1 1L11 7L1 13V1Z" fill="#111"/>';
+  var PAUSE = '<rect x="1" y="1" width="3.5" height="12" fill="#111"/><rect x="7.5" y="1" width="3.5" height="12" fill="#111"/>';
+  function setPos(pct) { fill.style.width = pct+'%'; dot.style.left = pct+'%'; }
+  function fracFromEvent(e) { var clientX = e.touches ? e.touches[0].clientX : e.clientX; var r = track.getBoundingClientRect(); return Math.max(0, Math.min(1, (clientX-r.left)/r.width)); }
+  function seekTo(frac) { if (audio.duration) audio.currentTime = frac*audio.duration; setPos(frac*100); }
+  audio.addEventListener('play',  function() { icon.innerHTML = PAUSE; });
+  audio.addEventListener('pause', function() { icon.innerHTML = PLAY; });
+  audio.addEventListener('ended', function() { icon.innerHTML = PLAY; setPos(0); });
+  audio.addEventListener('timeupdate', function() { if (!dragging && audio.duration) setPos(audio.currentTime/audio.duration*100); });
+  btn.addEventListener('click', function() { if (audio.paused) { audio.play().catch(function(){}); } else { audio.pause(); } });
+  track.addEventListener('mousedown', function(e) { dragging = true; seekTo(fracFromEvent(e)); e.preventDefault(); });
+  document.addEventListener('mousemove', function(e) { if (!dragging) return; seekTo(fracFromEvent(e)); });
+  document.addEventListener('mouseup', function(e) { if (!dragging) return; dragging = false; seekTo(fracFromEvent(e)); if (audio.paused) audio.play().catch(function(){}); });
+  track.addEventListener('touchstart', function(e) { dragging = true; seekTo(fracFromEvent(e)); e.preventDefault(); }, { passive: false });
+  document.addEventListener('touchmove', function(e) { if (!dragging) return; seekTo(fracFromEvent(e)); });
+  document.addEventListener('touchend', function() { if (!dragging) return; dragging = false; if (audio.paused) audio.play().catch(function(){}); });
 })();
 </script>
 
