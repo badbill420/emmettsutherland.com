@@ -1,0 +1,29 @@
+/* Site color theme. Loaded last on every page, so it overrides each page's own colors.
+   To change the site's colors, edit the two values below. */
+:root {
+  --bg: #141414;
+  --text: #FAF9F6;
+  --rail: rgba(250, 249, 246, 0.25);
+}
+
+/* Background (custom pages + Wix page containers) */
+html, html body,
+html #SITE_CONTAINER, html #masterPage, html #SITE_FOOTER, html #SITE_FOOTER *,
+html .BmZ5pC, html .LWbAav, html .VgO9Yg, html .c7cMWz, html .fEm0Bo,
+html [data-testid="page-bg"] {
+  background: var(--bg) !important;
+  background-color: var(--bg) !important;
+}
+
+/* Text */
+html, html body, html *, html *::before, html *::after,
+html #comp-kvmogrvh * {
+  color: var(--text) !important;
+}
+
+/* Tune of the Week player */
+html svg path, html svg rect { fill: var(--text) !important; }
+html .totw-track, html .es-rail,
+html #totw-player [style*="rgba(17,17,17"] { background: var(--rail) !important; }
+html .totw-fill, html .totw-dot, html .es-fill, html .es-dot,
+html #totw-player [style*="background:#111"] { background: var(--text) !important; }
