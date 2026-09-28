@@ -21,9 +21,10 @@ html #comp-kvmogrvh * {
   color: var(--text) !important;
 }
 
-/* Tune of the Week player */
-html svg path, html svg rect { fill: var(--text) !important; }
+/* Audio players: Tune of the Week (.totw-*, and #totw-player built by script on older pages) and mix players (.es-*) */
+html svg path, html svg rect,
+html #totw-player button svg path, html #totw-player button svg rect { fill: var(--text) !important; }
 html .totw-track, html .es-rail,
-html #totw-player [style*="rgba(17,17,17"] { background: var(--rail) !important; }
+html #totw-player > div > div { background: var(--rail) !important; }
 html .totw-fill, html .totw-dot, html .es-fill, html .es-dot,
-html #totw-player [style*="background:#111"] { background: var(--text) !important; }
+html #totw-player > div > div > div { background: var(--text) !important; }
