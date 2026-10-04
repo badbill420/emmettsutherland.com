@@ -37,3 +37,9 @@ html .totw-track, html .es-rail,
 html #totw-player > div > div { background: var(--rail) !important; }
 html .totw-fill, html .totw-dot, html .es-fill, html .es-dot,
 html #totw-player > div > div > div { background: var(--text) !important; }
+
+/* Thin text-colored line around images (outline, so layouts don't shift); skip the transparent BADBILL logo */
+html img:not([src*="badbill-logo"]) {
+  outline: 1px solid var(--text) !important;
+  outline-offset: -1px;
+}
