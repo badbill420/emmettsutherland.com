@@ -1,18 +1,22 @@
 /* Site color theme. Loaded last on every page, so it overrides each page's own colors.
    To change the site's colors, edit the two values below. */
 :root {
-  --bg: #141414;
-  --text: #FAF9F6;
-  --rail: rgba(250, 249, 246, 0.25);
+  --bg: #8DB4D9;  /* shown while the cloud image loads */
+  --text: #141414;
+  --rail: rgba(20, 20, 20, 0.3);
 }
 
-/* Background (custom pages + Wix page containers) */
-html, html body,
+/* Background: tiled cloud image (original + mirrored copy, so it repeats without a seam);
+   page containers are transparent so it shows through */
+html {
+  background: var(--bg) url(/images/bg-clouds.jpg) center top / 100% auto repeat-y !important;
+}
+html body,
 html #SITE_CONTAINER, html #masterPage, html #SITE_FOOTER, html #SITE_FOOTER *,
 html .BmZ5pC, html .LWbAav, html .VgO9Yg, html .c7cMWz, html .fEm0Bo,
 html [data-testid="page-bg"] {
-  background: var(--bg) !important;
-  background-color: var(--bg) !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Text */
