@@ -2,8 +2,8 @@
    To change the site's colors, edit the two values below. */
 :root {
   --bg: #8DB4D9;  /* shown while the cloud image loads */
-  --text: #141414;
-  --rail: rgba(20, 20, 20, 0.3);
+  --text: #F4EBDD;
+  --rail: rgba(244, 235, 221, 0.45);
 }
 
 /* Background: tiled cloud image (original + mirrored copy, so it repeats without a seam);
@@ -23,7 +23,12 @@ html [data-testid="page-bg"] {
 html, html body, html *, html *::before, html *::after,
 html #comp-kvmogrvh * {
   color: var(--text) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
 }
+
+/* Same slight shadow on the player icons and bars */
+html #totw-player button svg, html .totw-btn svg, html .es-play svg,
+html .totw-track, html .es-rail, html #totw-player > div > div { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55)); }
 
 /* Audio players: Tune of the Week (.totw-*, and #totw-player built by script on older pages) and mix players (.es-*) */
 html svg path, html svg rect,
