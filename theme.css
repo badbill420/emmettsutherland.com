@@ -53,3 +53,9 @@ html img:not([src*="badbill-logo"]) {
 html .wixui-image:not(:has(img[src*="badbill-logo"])) {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.6) !important;
 }
+/* Same cream line and dark halo around video players (YouTube/Vimeo embeds and self-hosted videos) */
+html iframe[src*="youtube"], html iframe[src*="vimeo"], html video {
+  outline: 2px solid var(--text) !important;
+  outline-offset: -2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
