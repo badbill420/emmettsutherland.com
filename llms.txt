@@ -143,6 +143,7 @@ The main site at https://www.emmettsutherland.com includes:
 - /narrative.html — Narrative cinematography work
 - /music-video.html — Music video cinematography work
 - /photography.html — Photography portfolio
+- /lens-tests.html — Lens tests and other goodies
 - /goodjob.html — GOOD JOB! creative studio overview
 - /thelittleroom.html — The Little Room bar project
 - /oldegoldbeer.html — Olde Gold Beer brand project

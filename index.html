@@ -143,7 +143,34 @@
       text-align: center;
     }
     .thumb-sm img {
-      height: 130px;
+      height: 163px;
+    }
+    /* Photography: columns sized to each image's width at 180px tall, so all four stay on one line at equal height */
+    .photo-row {
+      display: grid;
+      grid-template-columns: 130fr 319fr 120fr 320fr;
+    }
+    .photo-row .thumb a { width: 100%; }
+    .photo-row .thumb img {
+      width: 100%;
+      height: auto;
+      max-height: 180px;
+    }
+    /* YouTube thumbnail is 4:3 with letterbox bars; 16:9 crops to the picture */
+    .photo-row .thumb-wide img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .thumb-grid .thumb-sm a { width: 100%; }
+    .thumb-grid .thumb-sm img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
 
 
@@ -189,7 +216,7 @@
   <!-- Director of Photography -->
   <section class="section">
     <div class="section-title"><a href="reel.html">Director of Photography</a></div>
-    <div class="thumb-row">
+    <div class="thumb-row thumb-grid">
       <div class="thumb thumb-sm">
         <a href="fashionphile.html">
           <img src="/images/304f15_0620e1a78a4a4239bac60ecb9c3c9d4b~mv2.png" alt="Fashionphile">
@@ -208,13 +235,49 @@
         </a>
         <div class="thumb-cap">Monster Rally</div>
       </div>
+      <div class="thumb thumb-sm">
+        <a href="air-to-air.html">
+          <img src="/images/air-to-air-cover.png" alt="Aerial Reel">
+        </a>
+        <div class="thumb-cap">Aerial Reel</div>
+      </div>
+      <div class="thumb thumb-sm">
+        <a href="ken.html">
+          <img src="/images/304f15_14d16e8eb822475394aec17c572d0fe4~mv2.png" alt="KEN">
+        </a>
+        <div class="thumb-cap">KEN</div>
+      </div>
+      <div class="thumb thumb-sm">
+        <a href="teed.html">
+          <img src="/images/304f15_10714d99096449c48115d1df6b71b2fd~mv2.png" alt="TEED">
+        </a>
+        <div class="thumb-cap">TEED &mdash; Never Seen You Dance</div>
+      </div>
+      <div class="thumb thumb-sm">
+        <a href="volkswagen.html">
+          <img src="/images/304f15_91d28d4bd09a47ef99a43e9052be3545~mv2.png" alt="Volkswagen">
+        </a>
+        <div class="thumb-cap">Volkswagen</div>
+      </div>
+      <div class="thumb thumb-sm">
+        <a href="amazongo.html">
+          <img src="/images/304f15_f838a6e264cc44e0bc5f2944960a25b5~mv2.png" alt="Amazon Go">
+        </a>
+        <div class="thumb-cap">Amazon Go</div>
+      </div>
+      <div class="thumb thumb-sm">
+        <a href="lonely-heart.html">
+          <img src="/images/304f15_7dc770e652ec46f6ad9e10a58cbb7f94~mv2.png" alt="Lonely Heart">
+        </a>
+        <div class="thumb-cap">Mystic Braves &mdash; Lonely Heart</div>
+      </div>
     </div>
   </section>
 
   <!-- Photography -->
   <section class="section">
     <div class="section-title"><a href="photography.html">Photography</a></div>
-    <div class="thumb-row">
+    <div class="thumb-row photo-row">
       <div class="thumb">
         <a href="photography.html">
           <img src="/images/es_photo_1.jpg" alt="The Absorption Co.">
@@ -233,12 +296,18 @@
         </a>
         <div class="thumb-cap">Kenra</div>
       </div>
+      <div class="thumb thumb-wide">
+        <a href="photography.html">
+          <img src="https://img.youtube.com/vi/6y7OPU1-vd4/sddefault.jpg" alt="Easy Riders Magazine">
+        </a>
+        <div class="thumb-cap">Easy Riders Magazine</div>
+      </div>
     </div>
   </section>
 
-  <!-- Creative Director -->
+  <!-- GOOD JOB! Creative Studio -->
   <section class="section">
-    <div class="section-title"><a href="goodjob.html">Creative Director (GOOD JOB!)</a></div>
+    <div class="section-title"><a href="goodjob.html">GOOD JOB! Creative Studio</a></div>
     <div class="thumb-row">
       <div class="thumb">
         <a href="oldegoldbeer.html">
@@ -265,6 +334,11 @@
   <section class="section">
     <div class="section-title"><a href="badbill.html">BADBILL {MIXES &amp; DJ SETS}</a></div>
     <p class="section-bio">{From time to time I get down on the 1&rsquo;s &amp; 2&rsquo;s and this is where I share copies of those DJ sets. I&rsquo;m also an avid crate digger, so if I find groupings of music that inspire me I like to share those findings in the format of mixes. You can find those here.}</p>
+  </section>
+
+  <!-- Lens Tests & Other Goodies -->
+  <section class="section">
+    <div class="section-title"><a href="lens-tests.html">Lens Tests &amp; Other Goodies</a></div>
   </section>
 
 </main>
