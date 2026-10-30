@@ -85,4 +85,59 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attachMarkup);
   else attachMarkup();
+
+  // Song title: scrolls in a loop under the progress bar, as wide as the player, in the same
+  // type as the "¡TUNE OF THE WEEK!" label. Change it here when the tune changes.
+  var TITLE = 'Puli x Apiento - To Live And Cry In L.A.';
+
+  function addTitle() {
+    if (document.getElementById('totw-title')) return true;
+    var row = document.querySelector('.totw-block .totw-player') ||
+              document.querySelector('#totw-player > div:last-child');
+    var lbl = document.querySelector('.totw-label') || document.querySelector('#totw-player > span');
+    if (!row || !lbl || !row.offsetWidth) return false;
+
+    if (!document.getElementById('totw-title-style')) {
+      var st = document.createElement('style');
+      st.id = 'totw-title-style';
+      st.textContent =
+        '#totw-title{overflow:hidden;white-space:nowrap;margin-top:5px;margin-left:auto;text-align:left;}' +
+        '#totw-title>span{display:inline-block;animation:totw-scroll linear infinite;}' +
+        '#totw-title>span>span{padding-right:3em;}' +
+        '@keyframes totw-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}' +
+        '@media (prefers-reduced-motion:reduce){#totw-title>span{animation:none}}';
+      document.head.appendChild(st);
+    }
+
+    var cs = getComputedStyle(lbl);
+    var box = document.createElement('div');
+    box.id = 'totw-title';
+    box.setAttribute('aria-label', TITLE);
+    box.style.width = row.offsetWidth + 'px';
+    box.style.fontFamily = cs.fontFamily;
+    box.style.fontSize = cs.fontSize;
+    box.style.fontWeight = cs.fontWeight;
+    box.style.fontStyle = cs.fontStyle;
+    box.style.letterSpacing = cs.letterSpacing;
+    box.style.textTransform = cs.textTransform;
+    box.style.lineHeight = cs.lineHeight;
+
+    // Two copies side by side, shifted by one copy's width, so the loop has no seam.
+    var reel = document.createElement('span');
+    reel.setAttribute('aria-hidden', 'true');
+    reel.innerHTML = '<span></span><span></span>';
+    reel.firstChild.textContent = reel.lastChild.textContent = TITLE;
+    box.appendChild(reel);
+    row.parentNode.insertBefore(box, row.nextSibling);
+    reel.style.animationDuration = (reel.offsetWidth / 2 / 30) + 's'; // about 30px a second
+    return true;
+  }
+  function tryTitle() {
+    if (addTitle()) return;
+    // Older Wix pages build their player late, after the header is on the page.
+    var tries = 0;
+    var t = setInterval(function () { if (addTitle() || ++tries > 40) clearInterval(t); }, 250);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tryTitle);
+  else tryTitle();
 })();
