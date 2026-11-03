@@ -34,10 +34,14 @@
     .project-card a { display: block; width: 280px; height: 158px; overflow: hidden; }
     .project-card img { width: 280px; height: 158px; object-fit: cover; display: block; }
     .project-card.poster a, .project-card.poster img { height: auto; }
-    /* Stills stacked beside a poster: three 16:9 frames plus the gaps match the poster's height */
-    .stills { display: flex; flex-direction: column; gap: 8px; width: 236px; max-width: 100%; }
+    /* One film per group: a 240px poster with three stills stacked beside it, sized so the
+       stack matches the poster's height and both films fit side by side in the 900px column */
+    .film { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+    .film .project-card.poster { flex-basis: 240px; width: 240px; }
+    .film .project-card.poster a, .film .project-card.poster img { width: 240px; }
+    .stills { display: flex; flex-direction: column; gap: 8px; width: 201px; max-width: 100%; }
     .stills a, .stills img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
-    .stills.four-three { width: 180px; }
+    .stills.four-three { width: 153px; }
     .stills.four-three a, .stills.four-three img { aspect-ratio: 1.35; }
     .project-card .cap { font-size: 11px; margin-top: 4px; text-align: left; font-style: italic; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
@@ -65,13 +69,14 @@
 <main>
 <div class="page-title">Narrative</div>
   <div class="project-grid">
-    <div class="project-card poster"><a href="ken.html"><img src="/images/ken-poster.jpg" alt="KEN"></a><div class="cap">KEN &mdash; Short Film</div></div>
-    <div class="stills"><a href="ken.html"><img src="/images/ken-still-silhouette.jpg" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_6a9b8beb39cf49d98710abc4a8d6d0ee~mv2.png" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_eabeaeb6e21c458aaa33237e12629655~mv2.png" alt="KEN"></a></div>
-  </div>
-
-  <div class="project-grid">
-    <div class="project-card poster"><a><img src="/images/the-beam-poster.jpg" alt="The Beam"></a><div class="cap">&ldquo;The Beam&rdquo; &mdash; Short Film &mdash; Coming Soon</div></div>
-    <div class="stills four-three"><a><img src="/images/the-beam-still-1.jpg" alt="The Beam"></a><a><img src="/images/the-beam-still-2.jpg" alt="The Beam"></a><a><img src="/images/the-beam-still-3.jpg" alt="The Beam"></a></div>
+    <div class="film">
+      <div class="project-card poster"><a href="ken.html"><img src="/images/ken-poster.jpg" alt="KEN"></a><div class="cap">KEN &mdash; Short Film</div></div>
+      <div class="stills"><a href="ken.html"><img src="/images/ken-still-silhouette.jpg" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_6a9b8beb39cf49d98710abc4a8d6d0ee~mv2.png" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_eabeaeb6e21c458aaa33237e12629655~mv2.png" alt="KEN"></a></div>
+    </div>
+    <div class="film">
+      <div class="project-card poster"><a><img src="/images/the-beam-poster.jpg" alt="The Beam"></a><div class="cap">&ldquo;The Beam&rdquo; &mdash; Short Film &mdash; Coming Soon</div></div>
+      <div class="stills four-three"><a><img src="/images/the-beam-still-1.jpg" alt="The Beam"></a><a><img src="/images/the-beam-still-2.jpg" alt="The Beam"></a><a><img src="/images/the-beam-still-3.jpg" alt="The Beam"></a></div>
+    </div>
   </div>
 </main>
 <footer><a href="https://www.instagram.com/xemmettsutherlandx">Emmett Sutherland &copy;</a></footer>
