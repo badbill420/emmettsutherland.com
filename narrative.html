@@ -34,8 +34,9 @@
     .project-card a { display: block; width: 280px; height: 158px; overflow: hidden; }
     .project-card img { width: 280px; height: 158px; object-fit: cover; display: block; }
     .project-card.poster a, .project-card.poster img { height: auto; }
-    .project-card .stills { display: flex; gap: 8px; margin-top: 8px; }
-    .project-card .stills a, .project-card .stills img { width: 136px; height: 77px; }
+    /* Stills stacked beside a poster: three 16:9 frames plus the gaps match the poster's height */
+    .stills { display: flex; flex-direction: column; gap: 8px; width: 236px; max-width: 100%; }
+    .stills a, .stills img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
     .project-card .cap { font-size: 11px; margin-top: 4px; text-align: left; font-style: italic; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
@@ -62,9 +63,8 @@
 <main>
 <div class="page-title">Narrative</div>
   <div class="project-grid">
-    <div class="project-card poster"><a href="ken.html"><img src="/images/ken-poster.jpg" alt="KEN"></a>
-      <div class="stills"><a href="ken.html"><img src="/images/304f15_eabeaeb6e21c458aaa33237e12629655~mv2.png" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_6a9b8beb39cf49d98710abc4a8d6d0ee~mv2.png" alt="KEN"></a></div>
-      <div class="cap">KEN &mdash; Short Film</div></div>
+    <div class="project-card poster"><a href="ken.html"><img src="/images/ken-poster.jpg" alt="KEN"></a><div class="cap">KEN &mdash; Short Film</div></div>
+    <div class="stills"><a href="ken.html"><img src="/images/ken-still-silhouette.jpg" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_6a9b8beb39cf49d98710abc4a8d6d0ee~mv2.png" alt="KEN"></a><a href="ken.html"><img src="/images/304f15_eabeaeb6e21c458aaa33237e12629655~mv2.png" alt="KEN"></a></div>
   </div>
 
   <div class="project-grid">
