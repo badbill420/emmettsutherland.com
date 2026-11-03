@@ -37,6 +37,8 @@
     /* Stills stacked beside a poster: three 16:9 frames plus the gaps match the poster's height */
     .stills { display: flex; flex-direction: column; gap: 8px; width: 236px; max-width: 100%; }
     .stills a, .stills img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+    .stills.four-three { width: 180px; }
+    .stills.four-three a, .stills.four-three img { aspect-ratio: 1.35; }
     .project-card .cap { font-size: 11px; margin-top: 4px; text-align: left; font-style: italic; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
   </style>
@@ -69,6 +71,7 @@
 
   <div class="project-grid">
     <div class="project-card poster"><a><img src="/images/the-beam-poster.jpg" alt="The Beam"></a><div class="cap">&ldquo;The Beam&rdquo; &mdash; Short Film &mdash; Coming Soon</div></div>
+    <div class="stills four-three"><a><img src="/images/the-beam-still-1.jpg" alt="The Beam"></a><a><img src="/images/the-beam-still-2.jpg" alt="The Beam"></a><a><img src="/images/the-beam-still-3.jpg" alt="The Beam"></a></div>
   </div>
 </main>
 <footer><a href="https://www.instagram.com/xemmettsutherlandx">Emmett Sutherland &copy;</a></footer>
