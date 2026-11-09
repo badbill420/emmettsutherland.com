@@ -88,7 +88,7 @@
 
   // Song title: scrolls in a loop under the progress bar, as wide as the player, in the same
   // type as the "¡TUNE OF THE WEEK!" label. Change it here when the tune changes.
-  var TITLE = 'Puli x Apiento - To Live And Cry In L.A.';
+  var TITLE = 'The Stylers - Disco Drums';
 
   function addTitle() {
     if (document.getElementById('totw-title')) return true;
