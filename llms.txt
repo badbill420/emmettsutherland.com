@@ -148,6 +148,7 @@ The main site at https://www.emmettsutherland.com includes:
 - /thelittleroom.html — The Little Room bar project
 - /oldegoldbeer.html — Olde Gold Beer brand project
 - /cloisterwatchco.html — Cloister Watch Co. rebrand project
+- /privacy.html — Privacy policy
 - /countdown-boxing-club.html — Countdown Boxing Club branding
 - /contact.html — Contact and representation info
 - /asc-mag.html — American Cinematographer magazine feature, 2017
