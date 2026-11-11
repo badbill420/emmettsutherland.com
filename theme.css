@@ -79,7 +79,9 @@ html #PAGES_CONTAINER h6, html #PAGES_CONTAINER h6 *,
 /* Captions under videos and the "<" back arrow */
 html .cap, html .cap *,
 html .thumb-cap, html .thumb-cap *,
-html .back-arrow, html .back-arrow * {
+html .back-arrow, html .back-arrow *,
+/* Tune of the Week label and song title (the play icon and bar stay cream) */
+html .totw-label, html #totw-player > span, html #totw-title, html #totw-title * {
   color: #000 !important;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.6) !important;
 }
