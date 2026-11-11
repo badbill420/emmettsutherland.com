@@ -31,8 +31,6 @@
     .project-card { min-width: 0; }
     .project-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
     .project-card .cap { font-size: 11px; margin-top: 4px; text-align: left; font-style: italic; }
-    /* Video captions: black with a soft white glow */
-    html .project-card .cap { color: #000 !important; text-shadow: 0 0 2px rgba(255,255,255,0.95), 0 0 4px rgba(255,255,255,0.8), 0 0 8px rgba(255,255,255,0.6) !important; }
     .project-card button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
     .project-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; }
     footer { max-width: 980px; margin: 0 auto; padding: 16px 40px; font-size: 11px; color: #777; text-align: center; }
@@ -47,7 +45,7 @@
 <body>
 <header id="site-header">
   <div class="inner">
-    <div><a href="javascript:history.back()">&lt;</a></div>
+    <div><a class="back-arrow" href="javascript:history.back()">&lt;</a></div>
     <div class="totw-block">
       <span class="totw-label">¡TUNE OF THE WEEK!</span>
       <div class="totw-player">

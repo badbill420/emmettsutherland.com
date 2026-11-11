@@ -60,15 +60,30 @@ html iframe[src*="youtube"], html iframe[src*="vimeo"], html video {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Long descriptions read in black with no shadow; headings and subheadings keep the cream text above.
-   To make another paragraph black, add class="desc-text" to it. */
+/* Body-size text (descriptions, credits, tracklists, contact details) reads in black with no shadow;
+   headings and subheadings keep the cream text above. To make another paragraph black, add class="desc-text". */
 html .desc-text, html .desc-text *,
 html .goodie-copy, html .goodie-copy *,
 html .intro-copy, html .intro-copy *,
 html .project-body, html .project-body *,
 html .section-body, html .section-body *,
 html .section-bio, html .section-bio *,
-html .policy p, html .policy p *, html .policy li, html .policy li * {
+html .section-sub, html .section-sub *,
+html .credits, html .credits *,
+html .contact-line, html .contact-line *,
+html .tracklist, html .tracklist *,
+html .read-more,
+html .policy p, html .policy p *, html .policy li, html .policy li *,
+html #PAGES_CONTAINER p, html #PAGES_CONTAINER p *,
+html #PAGES_CONTAINER h6, html #PAGES_CONTAINER h6 * {
   color: #000 !important;
   text-shadow: none !important;
+}
+
+/* Captions under videos and the "<" back arrow: black with a soft white glow */
+html .cap, html .cap *,
+html .thumb-cap, html .thumb-cap *,
+html .back-arrow, html .back-arrow * {
+  color: #000 !important;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.6) !important;
 }
